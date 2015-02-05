@@ -29,6 +29,14 @@ gem 'spring',        group: :development
 
 gem 'devise', '~> 3.4.1'
 
+gem 'paperclip', '~> 4.2.1'
+
+# gem 'omniauth-foursquare', '~> 1.0.1'
+
+group :development, :test do
+  gem 'pry'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

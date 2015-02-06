@@ -1,4 +1,15 @@
 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<div class="ui grid">
+  <div class="one wide column"></div>
+    <div class="two wide column">
+      <h1 class="ui teal header">Bloggr</h1>
+    </div>
+  <div class="fourteen wide column">
+</div>
+
   <div class="ui grid">
     <div class="one wide column"></div>
     <div class="four wide column">
@@ -48,5 +59,13 @@
 </div>
 
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<script id="entry-template" type="text/x-handlebars-template">
+  <div class="ui card">
+    <div class="content">
+      <div class="meta">date</div>
+      <div class="description">
+        <p>{{description}}</p>
+      </div>
+    </div>
+  </div>
+</script>

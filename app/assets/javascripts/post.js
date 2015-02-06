@@ -1,82 +1,80 @@
-var listView = function(){
+// $(function() {
+//     $("#submit-button").on("click", function(){
+//     var value = $('input[name="post[description]"]').val();
+//     var url = '/posts';
+//     var data = {
+//       post: {
+//         description: value
+//       }
+//     }
+//     $.ajax = (url, {type: 'post', data: data }).done(function(data){
+//
+//       var postTemplate ='\
+//       <div class="ui card"> \
+//         <div class="content"> \
+//           <div class="description">' + post.description + '</div> \
+//         </div>\
+//         </div> '
+//       }
+//
+//       $('#posts-container').append(postTemplate)
+//     })
+//
+// });
 
-  var success = function(data, textStatus, thing){
-    debugger
 
-    var postsContainer = $('#posts-container');
 
+
+
+$(function() {
+  var postsIndexUrl = "/posts.json";
+  var postsContainer = $('#posts-container');
+  var javascriptTemplate = Handlebars.compile($('#entry-template').html());
+
+// fetching all posts from server and putting them on the page
+  $.getJSON(postsIndexUrl, function(data, textStatus, thing){
     data.forEach(function(post){
-      var htmlForPost = postTemplate(post);
+      var htmlForPost = javascriptTemplate(post);
       postsContainer.append(htmlForPost);
     });
-
-  };
-
-  var postTemplate = function(post){
-    return "<li>" + post.description + "<li>"
-    // return "<div class="ui card">
-    // <div class="content">
-    // <div class="meta">date</div>
-    // <div class="description">
-    // <p>" + post.description + "</p>
-    // </div>
-    // </div>
-    // <div class="extra content">
-    // <i class="star icon"></i>
-    // ### Likes
-    // </div>
-    // </div>"
-  }
-
-
-
-
-
-
-
-
-
-
-
-  var fail = function(){
+  }).fail(function(){
     debugger
-  };
+  });
 
-  var postsIndexUrl = "/posts.json"
-  var request = $.getJSON(postsIndexUrl, success)
-  request.fail(fail)
+  // $(document).on('click', '.ui.card', function(){
+  //   debugger
+  // })
 
-}
 
-var formStuff = function(){
-  var postSuccess = function(a,b,c){
-    debugger
+  // $('.card').on('hover', function(){
+  //   $(this).highlight()
+  // })
 
-    // postsContainer.append(template)
-  };
-
-  var postsCreateUrl = "/posts.json"
-  var datatype = "JSON";
 
   $("#submit-button").on("click", function(event){
-    var value = $('input[name="post[description]"]').val()
-    debugger
+    var input = $('input[name="post[description]"]');
+    var value = input.val();
+
+    if (value == "") {
+      // show an error
+      return;
+    }
+
     var data = {
       post: {
         description: value
       }
     }
 
-    $.post(postsCreateUrl,data, postSuccess, datatype)
+    $.post(postsIndexUrl,data, function(url,,c){
+      debugger
+      var newPost = a;
+
+      html = javascriptTemplate(newPost);
+      postsContainer.append(html);
+      input.val('');
+    }, "JSON");
 
   });
-};
 
-$(function() {
-
-  listView()
-
-  formStuff()
-  // fetch the posts
-  // after fetching, render them
 });

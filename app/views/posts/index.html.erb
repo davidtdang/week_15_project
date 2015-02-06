@@ -5,7 +5,7 @@
 <div class="ui grid">
   <div class="one wide column"></div>
     <div class="two wide column">
-      <h1 class="ui teal header">Bloggr</h1>
+      <h1 class="ui teal header">Scrap Papr</h1>
     </div>
   <div class="fourteen wide column">
 </div>
@@ -61,13 +61,58 @@
 
 
 <script id="entry-template" type="text/x-handlebars-template">
-  <div class="ui card">
-    <a class="ui corner red label"><i class="x icon" id:"delete"></i></a>
+  <div class="ui grid">
+    <p></p>
+    <div class="one wide column"></div>
+
+  <div class="ui card four wide column">
+
+    <a class="ui corner red label"><i class="x icon" id:"delete-button"></i></a>
+    <a class="ui left corner label"><i class="write icon" id:"delete-button"></i></a>
+
     <div class="content">
-      <div class="meta">date</div>
+      <!-- <div class="meta">date</div> -->
       <div class="description">
         <p>{{description}}</p>
       </div>
+      <div class="ui segment">
+      <a class="ui teal ribbon label"></a>
+      <p>{{comment}}</p>
+    </div>
     </div>
   </div>
+  <div class="eleven wide column">
+
+  </div>
+
 </script>
+
+<script id="comment-template" type="text/x-handlebars-template">
+<div class="extra content">
+<p>{{comment}}</p>
+</script>
+
+<!-- <div class="ui card">
+  <div class="image dimmable">
+<div class="ui dimmer">
+  <div class="content">
+    <div class="center">
+      <div class="ui inverted button">Add Friend</div>
+    </div>
+  </div>
+</div>
+<img src="/images/wireframe/image.png">
+  </div>
+  <div class="content">
+<div class="header">Title</div>
+<div class="meta">
+  <a class="group">Meta</a>
+</div>
+<div class="description">One or two sentence description that may go to several lines</div>
+  </div>
+  <div class="extra content">
+<a class="right floated created">Arbitrary</a>
+<a class="friends">
+  Arbitrary</a>
+  </div>
+</div> -->

@@ -78,10 +78,16 @@ $(function() {
 
   });
 
-  $("div").on("click", ".x", function()
-  {
-    $(this).parent().parent().remove();
+  $("div").on("click", ".x", function(){
+    var reply =confirm("Are you sure you want to delete this post?");
+      if (reply == true) {
+        $(this).parent().parent().remove();
+      }
+      else {
+        return
+      }
   });
+
 
 
 

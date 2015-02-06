@@ -56,7 +56,8 @@ $(function() {
     var value = input.val();
 
     if (value == "") {
-      // show an error
+        alert("Please enter text");
+        // show an error
       return;
     }
 
@@ -66,9 +67,9 @@ $(function() {
       }
     }
 
-    $.post(postsIndexUrl,data, function(url,,c){
+    $.post(postsIndexUrl,data, function(objectData,textStatus,jqXHR){
       debugger
-      var newPost = a;
+      var newPost = objectData;
 
       html = javascriptTemplate(newPost);
       postsContainer.append(html);
@@ -76,5 +77,15 @@ $(function() {
     }, "JSON");
 
   });
+
+  $("div").on("click", ".x", function()
+  {
+    $(this).parent().parent().remove();
+  });
+
+
+
+
+
 
 });
